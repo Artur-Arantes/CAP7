@@ -28,6 +28,8 @@ services:
         condition: service_healthy
     ports:
       - '8080:8080'
+    environment:
+      - ConnectionStrings__DatabaseConnection=Server=db;Database=db;Uid=root;Pwd=123456;
     networks:
       - rede
 

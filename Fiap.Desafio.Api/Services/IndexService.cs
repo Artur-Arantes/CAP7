@@ -19,7 +19,7 @@ public class IndexService : IIndexService
         _resourceRepository = resourceRepository;
     } 
     
-    public void add(ResourceIndexModel index)
+    public void Add(ResourceIndexModel index)
     {
         _resourceRepository.add(index.Resource);
         _repository.add(index);

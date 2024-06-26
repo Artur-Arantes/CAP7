@@ -12,6 +12,7 @@
             public virtual DbSet<ResourceModel> ResourceModels { get; set; }
             public virtual DbSet<ResourceIndexModel> ResourceIndexModels { get; set; }
             public virtual DbSet<RecordMeasurementModel> RecordMeasurementModels { get; set; }
+            public virtual DbSet<AlertStatusModel> AlertStatusModels { get; set; }
             
             
             
@@ -156,6 +157,42 @@
                       .WithMany()
                       .HasForeignKey(e => e.ResourceId)
                       .OnDelete(DeleteBehavior.Cascade);
+            });
+            
+            modelBuilder.Entity<AlertStatusModel>(entity =>
+            {
+                entity.ToTable("alert_status");
+
+                entity.HasKey(e => e.Id)
+                    .HasName("PK_alert_status");
+
+                entity.Property(e => e.Id)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("id_alert");
+
+                entity.Property(e => e.Description)
+                    .HasColumnName("alert_description")
+                    .HasMaxLength(500);
+
+                entity.Property(e => e.DateTimeAlert)
+                    .HasColumnName("date_time_alert")
+                    .HasColumnType("TIMESTAMP");
+
+                entity.Property(e => e.SendNotification)
+                    .HasColumnName("send_notification")
+                    .HasColumnType("tinyint(1)");
+
+                entity.Property(e => e.IdRecord)
+                    .HasColumnName("id_record");
+
+                entity.Property(e => e.Status)
+                    .HasColumnName("alert_status")
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.RecordMeasurement)
+                    .WithMany(p => p.AlertStatuses)
+                    .HasForeignKey(d => d.IdRecord)
+                    .HasConstraintName("FK_alert_status_record_measurements");
             });
 
                 base.OnModelCreating(modelBuilder);

@@ -4,5 +4,5 @@ namespace Fiap.Desafio.Api.Services;
 
 public interface IIndexService
 {
-    void add(ResourceIndexModel index);
+    void Add(ResourceIndexModel index);
 }

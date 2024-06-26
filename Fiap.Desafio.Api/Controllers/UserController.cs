@@ -18,7 +18,6 @@ public class UserController : ControllerBase
         _userService = userService;
     }
     
-    //TODO RETORNOS DE ERRO
     [HttpPost]
     public IActionResult add([FromBody]AddUserDto dto)
     {
@@ -28,21 +27,27 @@ public class UserController : ControllerBase
             userModel = _mapper.Map(dto, userModel);
             userModel.Person = _mapper.Map<PersonModel>(dto);
             _userService.Add(userModel);
+            return Ok();
         }
-        return Ok();
+
+        return BadRequest();
     }
     
-    //TODO FAZER OS RETORNOS DE ERRO
     [HttpGet]
-    public IActionResult get(int id)
+    public IActionResult Get(int id)
     {
-        return Ok(_userService.Get(id));
+        UserModel user = _userService.Get(id);
+        if (user != null)
+        {
+            return Ok(user);
+        }
+
+        return NotFound();
     }
     
     
-    //TODO ve que ta acontecendo aqui nesse endpoint
     [HttpDelete]
-    public IActionResult delete(long id)
+    public IActionResult Delete(long id)
     {
         _userService.Delete(id);
         return Ok();

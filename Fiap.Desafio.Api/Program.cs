@@ -16,14 +16,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(); 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Configuration.AddEnvironmentVariables();
 
 #region DB
 var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
-builder.Services.AddDbContext<DatabaseContext>(
-    opt => opt.UseMySQL(connectionString).EnableSensitiveDataLogging(true)
-);
-
-
+builder.Services.AddDbContext<DatabaseContext>(opt =>
+    opt.UseMySQL(connectionString).EnableSensitiveDataLogging(true));
 #endregion
 #region repositories and Services
 
@@ -37,6 +35,7 @@ builder.Services.AddScoped<IResourceIndexRepository, ResourceIndexRepository>();
 builder.Services.AddScoped<IResourceRepository, ResourceRepository>();
 builder.Services.AddScoped<IMeasurementDataService, MeasurementDataService>();
 builder.Services.AddScoped<IIndexService, IndexService>();
+builder.Services.AddScoped<IAlertStatusRepository, AlertStatusRepository>();
 
 
 #endregion
@@ -51,6 +50,16 @@ var mapperConfig = new AutoMapper.MapperConfiguration(
         c.CreateMap<LoginDto, UserModel>();
         c.CreateMap<AddUserDto, PersonModel>();
         c.CreateMap<AddMeasureDto, RecordMeasurementModel>();
+        c.CreateMap<AddIndexDto, ResourceIndexModel>()
+            .ForMember(dest => dest.IndexMinimum, opt => opt.MapFrom(src => src.Min))
+            .ForMember(dest => dest.IndexNormal, opt => opt.MapFrom(src => src.Normal))
+            .ForMember(dest => dest.IndexMaximum, opt => opt.MapFrom(src => src.Max))
+            .ForMember(dest => dest.ResourceId, opt => opt.MapFrom(src => src.ResourceId))
+            .ForMember(dest => dest.Resource, opt => opt.MapFrom(src => new ResourceModel
+            {
+                Id = src.ResourceId,
+                Name = src.Name
+            }));
 
     }
 );
@@ -90,4 +99,5 @@ app.UseHttpsRedirection();
 app.UseRouting(); 
 app.MapControllers();
 app.UseAuthorization();
+
 app.Run();

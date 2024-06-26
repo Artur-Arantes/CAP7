@@ -77,6 +77,8 @@ namespace Fiap.Desafio.Api.Services;
             
         public void Delete(long id)
         {
-            _userRepository.delete(id);
+            UserModel user =_userRepository.GetById(id);
+            user.Person = _personRepository.GetById(user.PersonId);
+            _userRepository.delete(user.Person);
         }
     }

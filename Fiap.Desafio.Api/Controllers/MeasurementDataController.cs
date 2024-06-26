@@ -22,7 +22,7 @@ public class MeasurementDataController : Controller
     }
     
     [HttpPost]
-    public IActionResult add([FromBody]AddMeasureDto dto)
+    public IActionResult Add([FromBody]AddMeasureDto dto)
     {
         if (ModelState.IsValid)
         {

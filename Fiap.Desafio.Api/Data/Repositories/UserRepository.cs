@@ -36,7 +36,7 @@ public class UserRepository : IUserRepository
             .FirstOrDefault(u => u.PersonId == personModel.Email);
     }
 
-    public void delete(long id)
+    public void delete(PersonModel id)
     {
         _databaseContext.Remove(id);
         _databaseContext.SaveChanges();

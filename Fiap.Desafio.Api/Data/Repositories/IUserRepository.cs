@@ -9,5 +9,5 @@ public interface IUserRepository
 
     UserModel GetById(long id);
     UserModel getByPerson(PersonModel personModel);
-    void delete(long id);
+    void delete(PersonModel personModel);
 }

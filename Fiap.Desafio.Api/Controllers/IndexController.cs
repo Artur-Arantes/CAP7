@@ -19,25 +19,16 @@ public class IndexController : Controller
         _mapper = mapper;
         _indexService = indexService;
     }
-    //TODO ajeitar esse endpoint
     [HttpPost]
-    public IActionResult add([FromBody]AddIndexDto dto)
+    public IActionResult Add([FromBody]AddIndexDto dto)
     {
         if (ModelState.IsValid)
-        {   
-            //TODO MAPEAR NO _IMAPPER
-            ResourceIndexModel model = new ResourceIndexModel();
-            model.IndexMinimum = dto.Min;
-            model.IndexNormal = dto.Normal;
-            model.IndexMaximum = dto.Max;
-            model.ResourceId = dto.ResourceId;
-            ResourceModel resource = new ResourceModel();
-            resource.Id = dto.ResourceId;
-            resource.Name = dto.Name;
-            model.Resource = resource;
-            
-            _indexService.add(model);
+        {
+            var model = _mapper.Map<ResourceIndexModel>(dto);
+            _indexService.Add(model);
+            return Ok();
         }
-        return Ok();
+
+        return BadRequest(ModelState);
     }
 }
