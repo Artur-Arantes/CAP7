@@ -1,0 +1,9 @@
+@Fiap.Desafio.Api_HostAddress = http://localhost:5171
+
+GET {{Fiap.Desafio.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+POST{{Fiap.Desafio.Api_HostAddress}}/api/v1/user
+Accept: application/json
+###
