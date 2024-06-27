@@ -32,7 +32,11 @@ public class MeasurementDataController : Controller
         }
         return Ok();
     }
-    
-    //TODO IMPLEMENTAR UM GETALL POR LOCATION COM PAGINACAO
-    
+
+    [HttpGet]
+    public IActionResult GetAll(string location, int pageNumber, int pageSize)
+    {
+        var results = _measurementDataService.GetAllByLocation(location, pageNumber, pageSize);
+        return Ok(results);
+    }
 }

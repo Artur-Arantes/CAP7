@@ -6,4 +6,5 @@ public interface IMeasurementDataService
 {
     void Add(RecordMeasurementModel record);
 
+    public List<RecordMeasurementModel> GetAllByLocation(string location, int pageNumber, int pageSize);
 }

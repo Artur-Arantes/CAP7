@@ -32,6 +32,12 @@ services:
       - ConnectionStrings__DatabaseConnection=Server=db;Database=db;Uid=root;Pwd=123456;
     networks:
       - rede
-
+    command: >
+      /bin/sh -c "
+      dotnet tool install --global dotnet-ef &&
+      export PATH=\"$PATH:/root/.dotnet/tools\" &&
+      dotnet ef database update &&
+      dotnet Fiap.Desafio.Api.dll
+      "
 networks:
   rede:

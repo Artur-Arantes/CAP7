@@ -34,6 +34,12 @@ public class MeasurementDataService : IMeasurementDataService
         GetIndexMeasure(resourceIndex,record);
     }
 
+    public List<RecordMeasurementModel> GetAllByLocation(string location, int pageNumber, int pageSize)
+    {
+        return _measureRepository.GetAllByLocation(location, pageNumber, pageSize);
+    }
+
+
     private void GetIndexMeasure( ResourceIndexModel index, RecordMeasurementModel record)
     {
         AlertStatusModel alert = null;

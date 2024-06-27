@@ -17,4 +17,13 @@ public class MeasureRepository : IMeasureRepository
         _databaseContext.RecordMeasurementModels.Add(record);
         _databaseContext.SaveChanges();
     }
+
+    public List<RecordMeasurementModel> GetAllByLocation(string location, int pageNumber, int pageSize)
+    {
+        return _databaseContext.RecordMeasurementModels
+            .Where(r => r.Location == location)
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+    }
 }

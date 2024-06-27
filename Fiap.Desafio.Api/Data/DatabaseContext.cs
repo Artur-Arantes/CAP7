@@ -194,7 +194,26 @@
                     .HasForeignKey(d => d.IdRecord)
                     .HasConstraintName("FK_alert_status_record_measurements");
             });
+            
+            modelBuilder.Entity<PermissionModel>().HasData(
+                new PermissionModel { Id = 1, Name = "user" }
+            );
 
+            modelBuilder.Entity<ResourceModel>().HasData(
+                new ResourceModel { Id = 1, Name = "agua", UnityMeasure = "qualquer_medida" }
+            );
+
+            modelBuilder.Entity<ResourceIndexModel>().HasData(
+                new ResourceIndexModel { ResourceId = 1, IndexMinimum = 50, IndexNormal = 20, IndexMaximum = 30 }
+            );
+
+            modelBuilder.Entity<PersonModel>().HasData(
+                new PersonModel { Name = "fiap", Email = "fiap@teste.com" }
+            );
+
+            modelBuilder.Entity<UserModel>().HasData(
+                new UserModel { Id = 9999, Login = "fiap", Password = "3333", PersonId = "fiap@teste.com", Enabled = true, SendNotification = false }
+            );
                 base.OnModelCreating(modelBuilder);
             }
         }

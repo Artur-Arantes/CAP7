@@ -18,6 +18,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Configuration.AddEnvironmentVariables();
 
+
 #region DB
 var connectionString = builder.Configuration.GetConnectionString("DatabaseConnection");
 builder.Services.AddDbContext<DatabaseContext>(opt =>
@@ -58,7 +59,8 @@ var mapperConfig = new AutoMapper.MapperConfiguration(
             .ForMember(dest => dest.Resource, opt => opt.MapFrom(src => new ResourceModel
             {
                 Id = src.ResourceId,
-                Name = src.Name
+                Name = src.Name,
+                UnityMeasure = src.UnityOfMeasure
             }));
 
     }

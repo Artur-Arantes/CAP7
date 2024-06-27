@@ -21,7 +21,6 @@ public class IndexService : IIndexService
     
     public void Add(ResourceIndexModel index)
     {
-        _resourceRepository.add(index.Resource);
         _repository.add(index);
         
     }
