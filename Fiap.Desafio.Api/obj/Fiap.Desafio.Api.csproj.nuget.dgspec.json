@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/home/artur/RiderProjects/Fiap.Desafio.Api/Fiap.Desafio.Api/Fiap.Desafio.Api.csproj": {}
+    "C:\\Users\\wever\\Source\\Repos\\CAP7\\Fiap.Desafio.Api\\Fiap.Desafio.Api.csproj": {}
   },
   "projects": {
-    "/home/artur/RiderProjects/Fiap.Desafio.Api/Fiap.Desafio.Api/Fiap.Desafio.Api.csproj": {
+    "C:\\Users\\wever\\Source\\Repos\\CAP7\\Fiap.Desafio.Api\\Fiap.Desafio.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/artur/RiderProjects/Fiap.Desafio.Api/Fiap.Desafio.Api/Fiap.Desafio.Api.csproj",
+        "projectUniqueName": "C:\\Users\\wever\\Source\\Repos\\CAP7\\Fiap.Desafio.Api\\Fiap.Desafio.Api.csproj",
         "projectName": "Fiap.Desafio.Api",
-        "projectPath": "/home/artur/RiderProjects/Fiap.Desafio.Api/Fiap.Desafio.Api/Fiap.Desafio.Api.csproj",
-        "packagesPath": "/home/artur/.nuget/packages/",
-        "outputPath": "/home/artur/RiderProjects/Fiap.Desafio.Api/Fiap.Desafio.Api/obj/",
+        "projectPath": "C:\\Users\\wever\\Source\\Repos\\CAP7\\Fiap.Desafio.Api\\Fiap.Desafio.Api.csproj",
+        "packagesPath": "C:\\Users\\wever\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wever\\Source\\Repos\\CAP7\\Fiap.Desafio.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/artur/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\wever\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +35,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -86,20 +94,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.6, 8.0.6]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.linux-x64",
-              "version": "[8.0.6, 8.0.6]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.6, 8.0.6]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -108,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

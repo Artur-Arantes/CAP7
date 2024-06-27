@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.Desafio.Api", "Fiap.Desafio.Api\Fiap.Desafio.Api.csproj", "{8443C73A-26B3-45A3-96D5-03D3BF2C3FED}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fiap.Desafio.Api", "Fiap.Desafio.Api\Fiap.Desafio.Api.csproj", "{8443C73A-26B3-45A3-96D5-03D3BF2C3FED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9D03C4F3-6B1A-4235-A57A-7D647724CAA4}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.Web.Alunos.Tests", "Fiap.Web.Alunos.Tests\Fiap.Web.Alunos.Tests.csproj", "{1D948D91-7637-480F-8003-046F2C266DC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,5 +22,15 @@ Global
 		{8443C73A-26B3-45A3-96D5-03D3BF2C3FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8443C73A-26B3-45A3-96D5-03D3BF2C3FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8443C73A-26B3-45A3-96D5-03D3BF2C3FED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D948D91-7637-480F-8003-046F2C266DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D948D91-7637-480F-8003-046F2C266DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D948D91-7637-480F-8003-046F2C266DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D948D91-7637-480F-8003-046F2C266DC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C78ADDB-AE85-42EB-90BB-C69CF4C046D3}
 	EndGlobalSection
 EndGlobal
